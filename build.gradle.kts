@@ -25,6 +25,8 @@ dependencies {
 
     implementation("io.ktor:ktor-server-content-negotiation:3.1.0")
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.1.0")
+
+    implementation("io.ktor:ktor-server-html-builder:3.1.0")
 }
 
 tasks.test {

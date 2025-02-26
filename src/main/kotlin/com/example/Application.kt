@@ -4,11 +4,15 @@ import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
+import io.ktor.server.html.*
 import io.ktor.server.netty.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.util.reflect.*
+import kotlinx.html.body
+import kotlinx.html.h3
+import kotlinx.html.title
 import kotlinx.serialization.Serializable
 import java.lang.Exception
 
@@ -116,6 +120,31 @@ fun Application.module(){
                 call.respondText("You have successfully redirected towards move...")
 
             }
+        }
+
+        route("/welcome"){
+
+            handle {
+
+                call.respondHtml {
+                    head {
+
+                        title + "Custom Title"
+
+                    }
+                    body {
+
+                        h3 {
+
+                            +"Welcome"
+
+                        }
+
+                    }
+                }
+
+            }
+
         }
 
     }
